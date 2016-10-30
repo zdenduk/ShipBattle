@@ -28,18 +28,20 @@ public class GameUI {
     }
 
     private boolean gameEnded(Player player1, Player player2) {
-        FieldType[][] battlefield1 = player1.getBattlefield().getBattlefield();
-        FieldType[][] battlefield2 = player2.getBattlefield().getBattlefield();
-        for (int i = 0; i < battlefield1.length; i++) {
-            for (int j = 0; j < battlefield1[0].length; j++) {
-                if (battlefield1[i][j] == FieldType.SHIP) {
-                    return false;
-                }
-            }
+        if(playerLost(player1)){
+            return true;
         }
-        for (int i = 0; i < battlefield2.length; i++) {
-            for (int j = 0; j < battlefield2[0].length; j++) {
-                if (battlefield2[i][j] == FieldType.SHIP) {
+        else if(playerLost(player2)){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean playerLost(Player player){
+        FieldType[][] battlefield = player.getBattlefield().getBattlefield();
+        for (int i = 0; i < battlefield.length; i++) {
+            for (int j = 0; j < battlefield[0].length; j++) {
+                if (battlefield[i][j] == FieldType.SHIP) {
                     return false;
                 }
             }
@@ -97,10 +99,10 @@ public class GameUI {
         for (int i = 0; i < battlefield1.length; i++) {
             for (int j = 0; j < battlefield1[0].length; j++) {
                 if (battlefield1[i][j] == FieldType.SHIP) {
-                    return "Player 2 won";
+                    return "Player 1 won";
                 }
             }
         }
-        return "Player 1 won";
+        return "Player 2 won";
     }
 }

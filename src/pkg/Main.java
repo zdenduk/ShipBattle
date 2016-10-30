@@ -11,8 +11,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Player player1 = createPlayer();
-        Player player2 = createPlayer();
+        Player player1, player2;
+        /*player1 = player2 = createPlayer();*/
+        player1 = createPlayer();
+        player2 = createPlayer();
         GameUI gameUI = new GameUI();
         gameUI.play(player1, player2);
     }

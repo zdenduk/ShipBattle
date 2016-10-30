@@ -3,8 +3,8 @@ package pkg.domain;
 public enum FieldType {
     NOTHING(""),
     SHIP(""),
-    HIT("I destroyed a ship!"),
-    MISS("It's a miss.");
+    HIT(""),
+    MISS("");
 
 
     private String caption;

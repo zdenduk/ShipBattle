@@ -2,6 +2,7 @@ package pkg.domain.impl;
 
 import pkg.domain.Battlefield;
 import pkg.domain.FieldType;
+import pkg.domain.ShipType;
 
 public class BattlefieldImpl implements Battlefield {
     FieldType[][] battlefield;
@@ -23,8 +24,18 @@ public class BattlefieldImpl implements Battlefield {
     }
 
     @Override
-    public void addShip(int x, int y) {
-        battlefield[x][y] = FieldType.SHIP;
+    public void addShip(int x, int y, boolean direction, ShipType shipType) {
+        if (direction == false) {
+            for (int i = 0; i < shipType.getLenght(); i++) {
+                battlefield[x][y] = FieldType.SHIP;
+                x++;
+            }
+        } else {
+            for (int i = 0; i < shipType.getLenght(); i++) {
+                battlefield[x][y] = FieldType.SHIP;
+                y++;
+            }
+        }
     }
 
     @Override
